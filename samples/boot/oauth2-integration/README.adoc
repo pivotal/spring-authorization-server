@@ -1,11 +1,31 @@
 = OAuth 2.0 Integration Sample
 
-This sample integrates `spring-security-oauth2-client` and `spring-security-oauth2-resource-server` with *Spring Authorization Server*.
+This sample integrates `spring-security-oauth2-client` and `spring-security-oauth2-resource-server`
+with *Spring Authorization Server*.
 
-== Run the Sample
+== Running the samples
 
-* Run Authorization Server -> `./gradlew -b samples/boot/oauth2-integration/authorizationserver/spring-security-samples-boot-oauth2-integrated-authorizationserver.gradle bootRun`
-** *IMPORTANT:* Make sure to modify your `/etc/hosts` file to avoid problems with session cookie overwrites between `client` and `authorizationserver`. Simply add the entry `127.0.0.1	auth-server`
-* Run Resource Server -> `./gradlew -b samples/boot/oauth2-integration/resourceserver/spring-security-samples-boot-oauth2-integrated-resourceserver.gradle bootRun`
-* Run Client -> `./gradlew -b samples/boot/oauth2-integration/client/spring-security-samples-boot-oauth2-integrated-client.gradle bootRun`
-* Go to `http://127.0.0.1:8080`
+** *IMPORTANT:* Make sure to modify your `/etc/hosts` file to avoid problems with session cookie overwrites between
+`client` and `authorizationserver`. Simply add the entry `127.0.0.1	auth-server`
+
+Run a sample authorization server instance (choose 1)
+
+```bash
+# Run basic authorization server (port 9000)
+./gradlew -b samples/boot/oauth2-integration/authorizationserver/spring-security-samples-boot-oauth2-integrated-authorizationserver.gradle bootRun
+
+## **Alternate auth server**: custom consent page example (port 9000)
+./gradlew -b samples/boot/oauth2-integration/authorizationserver-custom-consent-page/spring-security-samples-boot-oauth2-integrated-authorizationserver-custom-consent-page.gradle bootRun
+```
+
+Run resource server and client
+
+```bash
+# Run resource server (port 8090)
+./gradlew -b samples/boot/oauth2-integration/resourceserver/spring-security-samples-boot-oauth2-integrated-resourceserver.gradle bootRun
+
+# Run client (port 8080)
+./gradlew -b samples/boot/oauth2-integration/client/spring-security-samples-boot-oauth2-integrated-client.gradle bootRun
+```
+
+Navigate to `http://127.0.0.1:8080` (client app)
